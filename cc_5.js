@@ -13,3 +13,9 @@ const employees = [
 // Utility: currency formatting for display (keeps raw numbers for math)
 const money = (n) => `$${n.toFixed(2)}`;
 
+// ----- Step 3: Base pay up to 40 hours only -----
+function calculateBasePay(rate, hours) {
+  const baseHours = Math.min(hours, 40);
+  return rate * baseHours;
+}
+
