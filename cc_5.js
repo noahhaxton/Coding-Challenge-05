@@ -19,3 +19,9 @@ function calculateBasePay(rate, hours) {
   return rate * baseHours;
 }
 
+// ----- Step 4: Overtime pay at 1.5x for hours over 40 -----
+function calculateOvertimePay(rate, hours) {
+  const overtimeHours = Math.max(0, hours - 40);
+  return overtimeHours * rate * 1.5;
+}
+
