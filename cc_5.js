@@ -31,3 +31,20 @@ function calculateTaxes(grossPay) {
   return netPay;
 }
 
+// ----- Step 6: Process a single employee into a payroll object -----
+function processPayroll(employee) {
+  const { name, hourlyRate, hoursWorked } = employee;
+  const basePay = calculateBasePay(hourlyRate, hoursWorked);
+  const overtimePay = calculateOvertimePay(hourlyRate, hoursWorked);
+  const grossPay = basePay + overtimePay;
+  const netPay = calculateTaxes(grossPay);
+
+  return {
+    name,
+    basePay,
+    overtimePay,
+    grossPay,
+    netPay,
+  };
+}
+
