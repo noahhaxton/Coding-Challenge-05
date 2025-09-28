@@ -48,3 +48,12 @@ function processPayroll(employee) {
   };
 }
 
+// ----- Quick unit-style checks for individual functions (as suggested) -----
+console.log("Function checks:");
+console.log("Base (rate=20, h=35) =", money(calculateBasePay(20, 35)));     // $700.00
+console.log("Base (rate=20, h=45) =", money(calculateBasePay(20, 45)));     // $800.00
+console.log("OT   (rate=20, h=35) =", money(calculateOvertimePay(20, 35))); // $0.00
+console.log("OT   (rate=20, h=45) =", money(calculateOvertimePay(20, 45))); // $150.00
+console.log("Net  (gross=1000)   =", money(calculateTaxes(1000)));          // $850.00
+console.log("------------------------------------------------------------");
+
