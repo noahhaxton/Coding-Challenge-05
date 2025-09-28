@@ -25,3 +25,9 @@ function calculateOvertimePay(rate, hours) {
   return overtimeHours * rate * 1.5;
 }
 
+// ----- Step 5: Deduct 15% tax and return net pay -----
+function calculateTaxes(grossPay) {
+  const netPay = grossPay * (1 - 0.15); // 15% deduction
+  return netPay;
+}
+
