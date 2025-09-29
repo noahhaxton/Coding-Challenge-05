@@ -57,3 +57,36 @@ console.log("OT   (rate=20, h=45) =", money(calculateOvertimePay(20, 45))); // $
 console.log("Net  (gross=1000)   =", money(calculateTaxes(1000)));          // $850.00
 console.log("------------------------------------------------------------");
 
+// ----- Step 7: Loop through employees, log payroll objects -----
+console.log("Payroll Report:");
+let totals = { base: 0, ot: 0, gross: 0, net: 0 };
+
+for (const emp of employees) {
+  const record = processPayroll(emp);
+
+  // Log each employee’s payroll object
+  console.log({
+    name: record.name,
+    basePay: money(record.basePay),
+    overtimePay: money(record.overtimePay),
+    grossPay: money(record.grossPay),
+    netPay: money(record.netPay),
+  });
+
+  // Accumulate totals (raw numbers)
+  totals.base += record.basePay;
+  totals.ot += record.overtimePay;
+  totals.gross += record.grossPay;
+  totals.net += record.netPay;
+}
+
+// Show summary totals (nice for verification)
+console.log("------------------------------------------------------------");
+console.log("Totals:");
+console.log({
+  totalBase: money(totals.base),
+  totalOvertime: money(totals.ot),
+  totalGross: money(totals.gross),
+  totalNet: money(totals.net),
+});
+console.log("\nDone. Open DevTools ➜ Console to review all outputs.");
